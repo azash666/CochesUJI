@@ -1,35 +1,100 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlgoritmosGeneticos {
+public static class AlgoritmosGeneticos {
     //TODO: Cambiar nombre de la clase
     
-    CodigoADN[] individuos;
+    private static CodigoADN[] individuos;
 
 
-    public void crearMuestraInicial(int n)
+    public static void nuevaMuestraInicial(int cantidadIndividuos, int n)
     {
+        individuos = new CodigoADN[cantidadIndividuos];
+        for (int i = 0; i < cantidadIndividuos; i++)
+            individuos[i] = new CodigoADN(n);
 
     }
-
-    public void poda(int porcentaje)
+    public static void nuevaMuestraVacia(int cantidadIndividuos)
     {
-        //Selecciona los mejores
+        individuos = new CodigoADN[cantidadIndividuos];
     }
 
-    public void generarDescendientes()
+    public static void cambiaN(int n)
     {
-        //Genera los descendientes
+        foreach (CodigoADN adn in individuos)
+        {
+            adn.setN(n);
+        }
     }
 
-    public void combinar()
+    public static CodigoADN[] podaPorcentaje(int porcentaje)
+    {
+        int cantidad = individuos.Length * porcentaje / 100;
+        return podaCantidad(cantidad);
+    }
+
+    public static CodigoADN[] podaCantidad(int cantidad)
+    {
+        CodigoADN[] devolver = new CodigoADN[cantidad];
+        for (int i=0; i<cantidad; i++)
+        {
+            devolver[i] = individuos[i];
+        }
+        return devolver;
+    }
+
+    public static void generarDescendientes(CodigoADN[] padres)
+    {
+        for (int i = 0; i < individuos.Length; i++)
+            individuos[i] = CodigoADN.combinar(padres);
+    }
+
+    public static void generarDescendientes(CodigoADN[] padres, bool mantenerPadres)
+    {
+        if (mantenerPadres)
+        {
+            for (int i = 0; i < padres.Length; i++)
+                individuos[i] = padres[i];
+            for (int i = padres.Length; i < individuos.Length; i++)
+                individuos[i] = CodigoADN.combinar(padres);
+        }
+        else
+        {
+            generarDescendientes(padres);
+        }
+    }
+    
+
+    public static void combinar()
     {
         //Combinar los individuos
     }
 
-    public void mutar()
+    public static void mutar()
     {
-        //Mutar los individuos
+        foreach (CodigoADN adn in individuos)
+        {
+            adn.mutar();
+        }
     }
+
+    public static void mutar(int n)
+    {
+        foreach (CodigoADN adn in individuos)
+        {
+            adn.mutar(n);
+        }
+    }
+
+
+    // getIndividuo(-1) devuelve el último individuo, como en Python
+
+    public static CodigoADN getIndividuo(int i)
+    {
+        if (i >= individuos.Length || -i > individuos.Length) throw new IndexOutOfRangeException();
+        if (i < 0) i = individuos.Length - i;
+        return individuos[i];
+    } 
 }
