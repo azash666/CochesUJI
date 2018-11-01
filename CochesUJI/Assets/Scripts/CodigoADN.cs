@@ -18,7 +18,7 @@ public class CodigoADN {
     public CodigoADN(int n)
     {
         adn = new Dictionary<string, int>();
-        if (n > KEYS.Length * VALOR_MAXIMO_DEL_GEN)
+        if (n > KEYS.Length * (VALOR_MAXIMO_DEL_GEN - VALOR_MINIMO_DEL_GEN))
         {
             n = KEYS.Length * VALOR_MAXIMO_DEL_GEN;
         }
@@ -51,7 +51,7 @@ public class CodigoADN {
         CodigoADN devolver = new CodigoADN();
         foreach (string key in KEYS)
         {
-            int aux = rnd.Next(0, adns.Length - 1);
+            int aux = rnd.Next(0, adns.Length);
             int val = adns[aux].getGen(key);
             devolver.n += val;
             devolver.addGen(key,val);
@@ -72,36 +72,35 @@ public class CodigoADN {
     }
 
 
-    //TODO: Cambiar el constructor para que en vez de usar i--, descarte los genes máximos (Optimización). Optimizar
+    
 
     //Esta función añade una cantidad "valor" a los genes. Si valor < 0, los resta
 
     private void addCantidad(int valor)
     {
         System.Random rnd = new System.Random();
-        if (valor > 0){
-            for (int i = 0; i < valor; i++)
+        List<String> auxKeys = new List<String>();
+        int valorAux;
+        foreach (String key in KEYS)
+            if ((adn[key] > VALOR_MINIMO_DEL_GEN && valor < 0) || (adn[key] < VALOR_MAXIMO_DEL_GEN && valor > 0))
             {
-                int aux = rnd.Next(0, KEYS.Length - 1);
-                int val = adn[KEYS[aux]];
-                if (val < VALOR_MAXIMO_DEL_GEN)
-                    adn[KEYS[aux]] = val + 1;
-                else
-                    i--;
+                auxKeys.Add(key);
             }
-        }
+
+        if (valor > 0)
+            valorAux = valor;
         else
+            valorAux = -valor;
+
+        for (int i = 0; i < valorAux; i++)
         {
-            valor = -valor;
-            for (int i = 0; i < valor; i++)
-            {
-                int aux = rnd.Next(0, KEYS.Length - 1);
-                int val = adn[KEYS[aux]];
-                if (val < VALOR_MINIMO_DEL_GEN)
-                    adn[KEYS[aux]] = val - 1;
-                else
-                    i--;
-            }
+            int aux = rnd.Next(0, auxKeys.Count);
+            int val = adn[auxKeys[aux]];
+            if (valor > 0)
+                adn[auxKeys[aux]] = val + 1;
+            else
+                adn[auxKeys[aux]] = val - 1;
+            if ((val >= VALOR_MAXIMO_DEL_GEN - 1 && valor>0 ) || (val <= VALOR_MINIMO_DEL_GEN + 1 && valor <0)) auxKeys.RemoveAt(aux);
         }
     }
 
