@@ -29,12 +29,14 @@ public static class AlgoritmosGeneticos {
         }
     }
 
+//Carece de sentido
     public static CodigoADN[] podaPorcentaje(int porcentaje)
     {
         int cantidad = individuos.Length * porcentaje / 100;
         return podaCantidad(cantidad);
     }
 
+//Carece de sentido
     public static CodigoADN[] podaCantidad(int cantidad)
     {
         CodigoADN[] devolver = new CodigoADN[cantidad];
@@ -96,5 +98,23 @@ public static class AlgoritmosGeneticos {
         if (i >= individuos.Length || -i > individuos.Length) throw new IndexOutOfRangeException();
         if (i < 0) i = individuos.Length - i;
         return individuos[i];
-    } 
+    }
+
+    public static CodigoADN[] getIndividuoArray(int[] indices)
+    {
+        CodigoADN[] devolver = new CodigoADN[indices.Length];
+        int j = 0;
+        foreach (int i in indices)
+        {
+            if (i >= individuos.Length || -i > individuos.Length) throw new IndexOutOfRangeException();
+            devolver[j] = individuos[i];
+            j++;
+        }
+        return devolver;
+    }
+
+    public static int length()
+    {
+        return individuos.Length;
+    }
 }
