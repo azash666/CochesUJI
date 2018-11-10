@@ -28,11 +28,9 @@ public static class GeneticsManager {
     }
 
 
-    public static void cambiaN(int n)
+    public static void changeSumatoryGenValues(int newSumatoryGenValues)
     {
-        //TODO
-       // DNACode.setN(n);
-        
+        DNACode.setSumatoryGenValues(newSumatoryGenValues);
     }
 
 
@@ -54,30 +52,30 @@ public static class GeneticsManager {
         return devolver;
     }
 
-    public static void generarDescendientes(DNACode[] padres)
+    public static void generateDescendants(DNACode[] parents)
     {
         for (int i = 0; i < sample.Length; i++)
-            sample[i] = DNACode.combinar(padres);
+            sample[i] = DNACode.combine(parents);
     }
 
-    public static void generarDescendientes(DNACode[] padres, bool mantenerPadres)
+    public static void generateDescendants(DNACode[] parents, bool keepParents)
     {
-        if (mantenerPadres)
+        if (keepParents)
         {
-            for (int i = 0; i < padres.Length; i++)
-                sample[i] = padres[i];
-            for (int i = padres.Length; i < sample.Length; i++)
-                sample[i] = DNACode.combinar(padres);
+            for (int i = 0; i < parents.Length; i++)
+                sample[i] = parents[i];
+            for (int i = parents.Length; i < sample.Length; i++)
+                sample[i] = DNACode.combine(parents);
         }
         else
         {
-            generarDescendientes(padres);
+            generateDescendants(parents);
         }
     }
     
     
 
-    public static void mutar()
+    public static void mutate()
     {
         foreach (DNACode adn in sample)
         {
@@ -85,7 +83,7 @@ public static class GeneticsManager {
         }
     }
 
-    public static void mutar(int n)
+    public static void mutate(int n)
     {
         foreach (DNACode adn in sample)
         {
@@ -96,24 +94,24 @@ public static class GeneticsManager {
 
     // getIndividuo(-1) devuelve el último individuo, como en Python
 
-    public static DNACode getIndividuo(int i)
+    public static DNACode getSingleSample(int index)
     {
-        if (i >= sample.Length || -i > sample.Length) throw new IndexOutOfRangeException();
-        if (i < 0) i = sample.Length - i;
-        return sample[i];
+        if (index >= sample.Length || -index > sample.Length) throw new IndexOutOfRangeException();
+        if (index < 0) index = sample.Length - index;
+        return sample[index];
     }
 
-    public static DNACode[] getIndividuoArray(int[] indices)
+    public static DNACode[] getSubarraySample(int[] indexes)
     {
-        DNACode[] devolver = new DNACode[indices.Length];
+        DNACode[] toReturn = new DNACode[indexes.Length];
         int j = 0;
-        foreach (int i in indices)
+        foreach (int i in indexes)
         {
             if (i >= sample.Length || -i > sample.Length) throw new IndexOutOfRangeException();
-            devolver[j] = sample[i];
+            toReturn[j] = sample[i];
             j++;
         }
-        return devolver;
+        return toReturn;
     }
 
     public static int length()
