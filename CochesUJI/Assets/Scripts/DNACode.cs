@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class DNACode
 {
-    private static int GEN_MIN_VALUE = 0;
-    private static int GEN_MAX_VALUE = 10;
+    public readonly static int GEN_MIN_VALUE = 0;
+    public readonly static int GEN_MAX_VALUE = 10;
 
-    private static string[] KEYS = { "velocidadMaxima", "aceleracion", "frenado", "agarre", "peso", "punteria", "prudencia", "anguloMaxGiro" };
-    private Dictionary<string, int> dna;                                                                                            //La key será el nombre del gen y el int el valor de 0/1 a 10.
+    public readonly static String[] KEYS = { "velocidadMaxima", "aceleracion", "frenado", "agarre", "peso", "punteria", "prudencia", "anguloMaxGiro" };
+    private Dictionary<String, int> dna;                                                                                            //La key será el nombre del gen y el int el valor de 0/1 a 10.
 
     private static int sumatoryGenValues;
 
@@ -21,7 +22,7 @@ public class DNACode
     public DNACode()
     {
         dna = new Dictionary<string, int>();
-        foreach (string key in KEYS)
+        foreach (String key in KEYS)
         {
             dna[key] = GEN_MIN_VALUE;
         }

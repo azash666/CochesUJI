@@ -61,19 +61,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AlgoritmosGeneticos.cs" />
-    <Compile Include="Assets\Scripts\CodigoADN.cs" />
+    <Compile Include="Assets\Scripts\DNACode.cs" />
+    <Compile Include="Assets\Scripts\DNACodeTest\DNACodeTest.cs" />
+    <Compile Include="Assets\Scripts\DNACodeTest\obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="Assets\Scripts\DNACodeTest\obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="Assets\Scripts\DNACodeTest\obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="Assets\Scripts\DNACodeTest\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\Scripts\GeneticsManager.cs" />
+    <None Include="Assets\Scripts\DNACodeTest\obj\Debug\DNACodeTest.csproj.FileListAbsolute.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/ddelg/Documents/GitHub/CochesUJI/CochesUJI/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Users/ddelg/Documents/GitHub/ProyectoGYM/CochesUJI/CochesUJI/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/ddelg/Documents/GitHub/CochesUJI/CochesUJI/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Users/ddelg/Documents/GitHub/ProyectoGYM/CochesUJI/CochesUJI/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/ddelg/Documents/GitHub/CochesUJI/CochesUJI/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Users/ddelg/Documents/GitHub/ProyectoGYM/CochesUJI/CochesUJI/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/ddelg/Documents/GitHub/CochesUJI/CochesUJI/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Users/ddelg/Documents/GitHub/ProyectoGYM/CochesUJI/CochesUJI/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

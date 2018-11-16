@@ -1,0 +1,2 @@
+D:\Users\ddelg\Documents\GitHub\ProyectoGYM\CochesUJI\CochesUJI\Assets\Scripts\DNACodeTest\obj\Debug\DNACodeTest.csprojResolveAssemblyReference.cache
+D:\Users\ddelg\Documents\GitHub\ProyectoGYM\CochesUJI\CochesUJI\Assets\Scripts\DNACodeTest\obj\Debug\DNACodeTest.csproj.CoreCompileInputs.cache
