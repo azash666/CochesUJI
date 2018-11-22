@@ -1,0 +1,2 @@
+D:\Users\ddelg\Documents\GitHub\ProyectoGYM\CochesUJI\CochesUJI\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+D:\Users\ddelg\Documents\GitHub\ProyectoGYM\CochesUJI\CochesUJI\obj\Debug\Tests.csproj.CoreCompileInputs.cache
