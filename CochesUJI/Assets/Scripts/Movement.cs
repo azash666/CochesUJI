@@ -37,7 +37,7 @@ public abstract class Movement : MonoBehaviour {
             if (direction >= 2 * Mathf.PI) direction -= 2 * Mathf.PI;
         }
 
-        transform.eulerAngles = new Vector3(90, Mathf.Rad2Deg * direction, 0); //Rotates the car to the direction it is going towards
+        transform.eulerAngles = new Vector3(0, Mathf.Rad2Deg * direction, 0); //Rotates the car to the direction it is going towards
         transform.position += new Vector3 (Mathf.Sin(direction)*speed, 0, Mathf.Cos(direction)*speed); //Moves the car to its new position
     }
 

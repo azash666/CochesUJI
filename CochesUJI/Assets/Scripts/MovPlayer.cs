@@ -7,10 +7,10 @@ public class MovPlayer : Movement {
     protected override void Start()
     {
         //TO DO: DISCUTIR ESTOS VALORES
-        maxSpeed=0.28f;
-        maxAcceleration=0.15f;
+        maxSpeed=0.45f;
+        maxAcceleration=0.25f;
         maxBrake=0.1f;
-        friction=0.05f;
+        friction=0.08f;
         maxSteer=0.04f;
         weight=0.9f;
 }
