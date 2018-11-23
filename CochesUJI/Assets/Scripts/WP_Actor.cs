@@ -13,11 +13,15 @@ public class WP_Actor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-	}
+        transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Waypoint")
-            target = other.gameObject.GetComponent<Waypoint>.NextPoint;
+        {
+            target = other.gameObject.GetComponent<Waypoint>().nextPoint;
+            transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
+        }
     }
 }
