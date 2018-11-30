@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour {
 
-    private float direction = 0; //Angle in radians, ranges from 0 to 2*PI
+    private float direction = 90; //Angle in radians, ranges from 0 to 2*PI
     private float speed = 0; //Ranges from 0 to maxSpeed
     private float acceleration = 0; //Ranges from -maxBrake to maxAcceleration
     protected float maxSpeed;
