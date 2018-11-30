@@ -1,0 +1,12 @@
+TESTS DE LA CLASE DNACode
+Constructor
+GenMaxValue = 10
+GenMinValue = 0
+velocidadMaxima --> 0
+aceleracion --> 0
+frenado --> 0
+agarre --> 0
+peso --> 0
+punteria --> 0
+prudencia --> 0
+anguloMaxGiro --> 0
