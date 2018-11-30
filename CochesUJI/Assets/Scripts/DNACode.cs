@@ -13,7 +13,7 @@ using UnityEngine;
         public readonly static String[] KEYS = { "velocidadMaxima", "aceleracion", "frenado", "agarre", "peso", "punteria", "prudencia", "anguloMaxGiro" };
         private Dictionary<String, int> dna;                                                                                            //La key será el nombre del gen y el int el valor de 0/1 a 10.
 
-        private static int sumatoryGenValues = 40;
+        public static int sumatoryGenValues = 40;
 
         //CONSTRUCTORES
         //Crear un nuevo individuo aleatorio
@@ -31,7 +31,9 @@ using UnityEngine;
 
 
         //METODOS
-        //Inicializa un nuevo indiciduo
+        //Inicializa un nuevo individuo
+        // RAUL: ¿por qué es necesario las 5 primeras lineas de codigo?
+        //       ¿No hace lo mismo que el constructor?
         public DNACode initialize()
         {
             dna = new Dictionary<string, int>();
