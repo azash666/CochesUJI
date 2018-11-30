@@ -2,6 +2,7 @@
 using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
+using System;
 
 public class DNACodeTest {
 
@@ -9,9 +10,8 @@ public class DNACodeTest {
     public void DNACodeTestSimplePasses() {
         // Use the Assert class to test conditions.
 
-        TestConstructor();
-        //Assert.That(resultadoObtenido, Is.EqualTo(resultadoEsperado));
-
+        Test_Constructor();
+        Test_initialize();
     }
 
     // A UnityTest behaves like a coroutine in PlayMode
@@ -23,13 +23,29 @@ public class DNACodeTest {
         yield return null;
     }
 
-    private void TestConstructor()
+    private void Test_Constructor()
     {
         DNACode dna = new DNACode();
         foreach (String key in DNACode.KEYS)
         {
-            float res = dna.getGen(key);
-            Assert.That(res, Is.EqualTo(0));
+            float result = dna.getGen(key);
+            Assert.That(result, Is.EqualTo(0));
         }    
+    }
+
+    // After the initialization, the sum of all values for the keys must to be equal to DNACode.sumatoryGenValues
+    private void Test_initialize()
+    {
+        float correctValue = DNACode.sumatoryGenValues;
+        DNACode dna = new DNACode();
+        dna.initialize();
+
+        float total_quantity = 0;
+        foreach (String key in DNACode.KEYS)
+            total_quantity += dna.getGen(key);
+
+        Assert.That(total_quantity, Is.EqualTo(correctValue));
+
+
     }
 }
