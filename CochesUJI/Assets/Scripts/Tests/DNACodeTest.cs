@@ -4,17 +4,15 @@ using NUnit.Framework;
 using System.Collections;
 
 public class DNACodeTest {
-        DNACode individuo = new DNACode();
 
     [Test]
     public void DNACodeTestSimplePasses() {
         // Use the Assert class to test conditions.
 
-        //Assert.AreEqual(individuo, individuo);
-        /*foreach (string key in DNACode.KEYS)
-            Assert.AreEqual(individuo.getGen(key), DNACode.GEN_MIN_VALUE);*/
+        TestConstructor();
+        //Assert.That(resultadoObtenido, Is.EqualTo(resultadoEsperado));
+
     }
-    
 
     // A UnityTest behaves like a coroutine in PlayMode
     // and allows you to yield null to skip a frame in EditMode
@@ -23,5 +21,15 @@ public class DNACodeTest {
         // Use the Assert class to test conditions.
         // yield to skip a frame
         yield return null;
+    }
+
+    private void TestConstructor()
+    {
+        DNACode dna = new DNACode();
+        foreach (String key in DNACode.KEYS)
+        {
+            float res = dna.getGen(key);
+            Assert.That(res, Is.EqualTo(0));
+        }    
     }
 }
