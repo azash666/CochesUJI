@@ -32,9 +32,7 @@ using UnityEngine;
 
         //METODOS
         //Inicializa un nuevo individuo
-        // RAUL: ¿por qué es necesario las 5 primeras lineas de codigo?
-        //       ¿No hace lo mismo que el constructor?
-        public DNACode initialize()
+         public DNACode initialize()
         {
             dna = new Dictionary<string, int>();
             foreach (string key in KEYS)
@@ -122,16 +120,21 @@ using UnityEngine;
 
         }
 
+        // Mutate two gens randomly. Sum 1 to one, and substract 1 to another
         public void mutate()
         {
             System.Random rnd = new System.Random();
             int auxUp, valUp, auxDown, valDown;
+
+            // list of the potential gens to be increased
             List<String> auxKeysUp = new List<String>();
             foreach (String key in KEYS)
                 if (dna[key] < GEN_MAX_VALUE)
                 {
                     auxKeysUp.Add(key);
                 }
+
+            // list of the potential gens to be decreased                
             List<String> auxKeysDown = new List<String>();
             foreach (String key in KEYS)
                 if (dna[key] > GEN_MIN_VALUE)
@@ -139,12 +142,16 @@ using UnityEngine;
                     auxKeysDown.Add(key);
                 }
 
-            auxUp = rnd.Next(0, KEYS.Length - 1);
+            // Look for one gen to increase
+            auxUp = rnd.Next(0, auxKeysUp.Count);
             String keyUp = auxKeysUp[auxUp];
-            valUp = dna[auxKeysUp[auxUp]];
+            valUp = dna[keyUp];
+
+            // Look for one gen to decrease
             if (auxKeysDown.Contains(keyUp)) auxKeysDown.Remove(keyUp);
-            auxDown = rnd.Next(0, KEYS.Length - 1);
+            auxDown = rnd.Next(0, auxKeysDown.Count);
             valDown = dna[auxKeysDown[auxDown]];
+
             dna[KEYS[auxUp]] = valUp + 1;
             dna[KEYS[auxDown]] = valDown - 1;
         }
