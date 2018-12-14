@@ -185,4 +185,12 @@ using UnityEngine;
             return sumatoryGenValues;
         }
 
+        public int calculateTotalQuantity()
+        {
+            float total_quantity = 0;
+            foreach (String key in KEYS)
+                total_quantity += dna.getGen(key);
+            return total_quantity;
+        }
+
     }
