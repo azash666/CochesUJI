@@ -7,7 +7,8 @@ public class MovPlayer : Movement {
     protected override void Start()
     {
         //TO DO: DISCUTIR ESTOS VALORES
-        maxSpeed=0.45f;
+        direction=Mathf.Deg2Rad * transform.eulerAngles.y;
+        maxSpeed =0.45f;
         maxAcceleration=0.25f;
         maxBrake=0.1f;
         friction=0.08f;
