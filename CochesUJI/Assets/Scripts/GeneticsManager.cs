@@ -24,11 +24,12 @@ public static class GeneticsManager {
     }
 
 
-    public static void changeSumatoryGenValues(int newSumatoryGenValues)
+    // TODO: repensar
+    /*public static void changeSumatoryGenValues(int newSumatoryGenValues)
     {
         DNACode.setSumatoryGenValues(newSumatoryGenValues);
     }
-
+*/
 
 //Carece de sentido
     public static DNACode[] podaPorcentaje(int porcentaje)

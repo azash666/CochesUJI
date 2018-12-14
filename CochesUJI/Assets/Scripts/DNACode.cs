@@ -13,7 +13,7 @@ using UnityEngine;
         public readonly static String[] KEYS = { "velocidadMaxima", "aceleracion", "frenado", "agarre", "peso", "punteria", "prudencia", "anguloMaxGiro" };
         private Dictionary<String, int> dna;                                                                                            //La key será el nombre del gen y el int el valor de 0/1 a 10.
 
-        public static int sumatoryGenValues = 40;
+        private int sumatoryGenValues = 40;
 
         //CONSTRUCTORES
         //Crear un nuevo individuo aleatorio
@@ -170,26 +170,26 @@ using UnityEngine;
         }
 
 
-        public static void setSumatoryGenValues(int sumatoryGenValues)
+        public void setSumatoryGenValues(int sumatoryGenValues)
         {
             if (sumatoryGenValues > KEYS.Length * (GEN_MAX_VALUE - GEN_MIN_VALUE))
             {
                 throw new ArgumentOutOfRangeException();
             }
-            DNACode.sumatoryGenValues = sumatoryGenValues;
+            this.sumatoryGenValues = sumatoryGenValues;
         }
 
 
-        public int getN()
+        public int getSumatoryGenValues()
         {
             return sumatoryGenValues;
         }
 
         public int calculateTotalQuantity()
         {
-            float total_quantity = 0;
+            int total_quantity = 0;
             foreach (String key in KEYS)
-                total_quantity += dna.getGen(key);
+                total_quantity += getGen(key);
             return total_quantity;
         }
 

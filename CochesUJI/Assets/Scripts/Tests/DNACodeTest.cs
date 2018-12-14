@@ -37,25 +37,24 @@ public class DNACodeTest {
     // After the initialization, the sum of all values for the keys must to be equal to DNACode.sumatoryGenValues
     private void Test_initialize()
     {
-        float correctValue = DNACode.sumatoryGenValues;
         DNACode dna = new DNACode().initialize();
 
-        float total_quantity = dna.calculateTotalQuantity();
+        int total_quantity = dna.calculateTotalQuantity();
+        int correctValue = dna.getSumatoryGenValues();
 
         Assert.That(total_quantity, Is.EqualTo(correctValue));
     }
 
     private void Test_mutate()
     {
-    	float correctValue = DNACode.sumatoryGenValues;
-
     	int N = 100;
     	for (int i=0; i<N; i++)
     	{
     		DNACode dna = new DNACode().initialize();
 
     		dna.mutate();
-     		float total_quantity = dna.calculateTotalQuantity();
+        	int total_quantity = dna.calculateTotalQuantity();
+        	int correctValue = dna.getSumatoryGenValues();
 
         	Assert.That(total_quantity, Is.EqualTo(correctValue));
     	}
