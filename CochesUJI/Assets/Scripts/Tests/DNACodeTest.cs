@@ -13,6 +13,7 @@ public class DNACodeTest {
         Test_Constructor();
         Test_initialize();
         Test_mutate();
+        Test_combine();
     }
 
     // A UnityTest behaves like a coroutine in PlayMode
@@ -40,7 +41,7 @@ public class DNACodeTest {
         DNACode dna = new DNACode().initialize();
 
         int total_quantity = dna.calculateTotalQuantity();
-        int correctValue = dna.getSumatoryGenValues();
+        int correctValue   = dna.getSumatoryGenValues();
 
         Assert.That(total_quantity, Is.EqualTo(correctValue));
     }
@@ -54,9 +55,27 @@ public class DNACodeTest {
 
     		dna.mutate();
         	int total_quantity = dna.calculateTotalQuantity();
-        	int correctValue = dna.getSumatoryGenValues();
+        	int correctValue   = dna.getSumatoryGenValues();
 
         	Assert.That(total_quantity, Is.EqualTo(correctValue));
     	}
     }
+
+    private void Test_combine()
+    {
+    	int N = 100;
+    	for (int i=0; i<N; i++)
+    	{
+    		DNACode[] parents = new DNACode[2];
+    		parents[0] = new DNACode().initialize();
+    		parents[1] = new DNACode().initialize();
+
+    		DNACode new_dna        = DNACode.combine(parents);
+    		int     total_quantity = new_dna.calculateTotalQuantity();
+        	int     correctValue   = new_dna.getSumatoryGenValues();
+
+        	Assert.That(total_quantity, Is.EqualTo(correctValue));
+        }
+    }
+
 }
