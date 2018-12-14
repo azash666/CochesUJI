@@ -15,10 +15,6 @@ using UnityEngine;
 
         private int sumatoryGenValues = 40;
 
-        //CONSTRUCTORES
-        //Crear un nuevo individuo aleatorio
-
-
         //Crear un individuo vacio
         public DNACode()
         {
