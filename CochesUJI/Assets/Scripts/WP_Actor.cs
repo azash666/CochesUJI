@@ -5,10 +5,10 @@ using UnityEngine;
 public class WP_Actor : Movement {
 
     float[] raycasts;
-    // Use t1his for initialization
+    // Use this for initialization
     protected override void Start () {//TO DO: RECIBIR DEGENETIC MANAGER, 11 valores
 
-        direction = Mathf.PI/2;
+        direction=Mathf.Deg2Rad * transform.eulerAngles.y;
         maxSpeed = 0.28f;
         maxAcceleration = 0.15f;
         maxBrake = 0.1f;

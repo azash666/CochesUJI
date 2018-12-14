@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Movement : MonoBehaviour {
 
-    private float direction = 90; //Angle in radians, ranges from 0 to 2*PI
+    protected float direction; //Angle in radians, ranges from 0 to 2*PI
     private float speed = 0; //Ranges from 0 to maxSpeed
     private float acceleration = 0; //Ranges from -maxBrake to maxAcceleration
     protected float maxSpeed;
@@ -13,8 +13,7 @@ public abstract class Movement : MonoBehaviour {
     protected float friction;
     protected float maxSteer;
     protected float weight;
-
-
+    
     protected abstract void Start();
     protected abstract float AccelerationAxis(); // Must return a float betweeen -1 and 1 with the acceration axis input
     protected abstract float SteerAxis(); // Must return a float betweeen -1 and 1 with the steering axis input
