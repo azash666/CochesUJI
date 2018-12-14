@@ -12,6 +12,7 @@ public class DNACodeTest {
 
         Test_Constructor();
         Test_initialize();
+        Test_mutate();
     }
 
     // A UnityTest behaves like a coroutine in PlayMode
@@ -36,16 +37,26 @@ public class DNACodeTest {
     // After the initialization, the sum of all values for the keys must to be equal to DNACode.sumatoryGenValues
     private void Test_initialize()
     {
-        float correctValue = DNACode.sumatoryGenValues;
-        DNACode dna = new DNACode();
-        dna.initialize();
+        DNACode dna = new DNACode().initialize();
 
-        float total_quantity = 0;
-        foreach (String key in DNACode.KEYS)
-            total_quantity += dna.getGen(key);
+        int total_quantity = dna.calculateTotalQuantity();
+        int correctValue = dna.getSumatoryGenValues();
 
         Assert.That(total_quantity, Is.EqualTo(correctValue));
+    }
 
+    private void Test_mutate()
+    {
+    	int N = 100;
+    	for (int i=0; i<N; i++)
+    	{
+    		DNACode dna = new DNACode().initialize();
 
+    		dna.mutate();
+        	int total_quantity = dna.calculateTotalQuantity();
+        	int correctValue = dna.getSumatoryGenValues();
+
+        	Assert.That(total_quantity, Is.EqualTo(correctValue));
+    	}
     }
 }
